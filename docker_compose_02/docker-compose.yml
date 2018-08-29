@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+
+ web:
+  image: 1510008147/web-service:0.1
+  deploy:
+   replicas: 10 
+   restart_policy:
+    condition: on-failure
+  ports:
+   - "80:80"
+  networks:
+   - webnet
+
+networks:
+ webnet:
+ 

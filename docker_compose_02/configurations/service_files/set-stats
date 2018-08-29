@@ -1,0 +1,9 @@
+#!/bin/bash
+
+path='/home/service/log/stats.log'
+
+ip addr | grep inet > ${path} 
+
+#ifconfig > ${path} 
+
+chmod 755 ${path} 
