@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/etc/init.d/apache2 stop
+
+docker run --name container -p 80:80 -d 1510008147/web-service:1.0 

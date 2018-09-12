@@ -1,0 +1,26 @@
+#!/bin/bash
+
+path='/var/log/service/stats.log'
+delimiter=';;;'
+topic='@@@'
+
+echo "${topic} ipaddr" > ${path}
+ip addr | grep inet | cut -d' ' -f6 | grep '^[0-9]' >> ${path} 
+echo ${delimiter} >> ${path}
+
+echo "${topic} netstat" >> ${path}
+netstat -r >> ${path}
+echo ${delimiter} >> ${path}
+
+echo "${topic} mpstat" >> ${path}
+mpstat >> ${path}
+echo ${delimiter} >> ${path}
+
+echo "${topic} pidstat" >> ${path}
+pidstat >> ${path}
+echo ${delimiter} >> ${path}
+
+echo "${topic} iostat" >> ${path}
+iostat >> ${path}
+
+chmod 755 ${path} 
